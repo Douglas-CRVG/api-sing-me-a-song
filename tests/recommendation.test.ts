@@ -1,6 +1,7 @@
-import { prisma } from "../src/database";
-import * as get from "./itControllers/getIt";
-import * as insert from "./itControllers/insertIt";
+import { prisma } from "../src/database.js";
+import * as get from "./itControllers/getIt.js";
+import * as insert from "./itControllers/insertIt.js";
+import * as vote from "./itControllers/voteIt.js";
 
 describe("Recommendaion controller", () => {
   beforeEach(async () => {
@@ -21,26 +22,23 @@ describe("Recommendaion controller", () => {
   });
 
   describe("GET /recommendations", () => {
-    it("", get.getAll);
-  });
-
-  /*describe("GET /recommendations/random", () => {
-    it.todo("", () => {});
-  });
-
-  describe("GET /recommendations/top/:amount", () => {
-    it.todo("", () => {});
-  });
-
-  describe("GET /recommendations/:id", () => {
-    it.todo("", () => {});
+    it("should return up to 10 recommendations giving a request", get.getAll);
   });
 
   describe("POST /recommendations/:id/upvote", () => {
-    it.todo("", () => {});
+    it("should return 200 and persist upvote given a valid id", vote.upvote);
+    it("should return 404 given a invalid id", vote.upvoteInvalidId);
   });
 
   describe("POST /recommendations/:id/downvote", () => {
-    it.todo("", () => {});
-  });*/
+    it(
+      "should return 200 and persist downvote given a valid id",
+      vote.downvote
+    );
+    it("should return 404 given a invalid id", vote.downvoteInvalidId);
+    it(
+      "should return 200 and remove recommendation given a score less than -5",
+      vote.downvoteRemoveRecommendation
+    );
+  });
 });
