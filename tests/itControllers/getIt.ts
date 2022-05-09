@@ -9,12 +9,25 @@ export async function getAll() {
   expect(response).not.toBeNull();
 }
 
-export function getRandom() {}
-export function getTop() {}
-export async function getById() {
-  const { id } = await createRecommendation();
+export async function getRandom() {}
+export async function getTop() {
+  const amount = 10;
 
-  const response = await supertest(app).get(`/recommendations/${id}`);
+  for (let i = 0; i < amount; i++) {
+    await createRecommendation();
+  }
+  const response = await supertest(app).get(`/recommendations/top/${amount}`);
+
+  expect(response.body.length).toEqual(amount);
+}
+
+export async function getById() {
+  const recommendation = await createRecommendation();
+
+  const response = await supertest(app).get(
+    `/recommendations/${recommendation.id}`
+  );
 
   expect(response).not.toBeNull();
+  expect(response.body).toEqual(recommendation);
 }

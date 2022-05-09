@@ -25,6 +25,10 @@ describe("Recommendaion controller", () => {
     it("should return up to 10 recommendations giving a request", get.getAll);
   });
 
+  describe("GET /recommendations/top/:amount", () => {
+    it("TOP", get.getTop);
+  });
+
   describe("GET /recommendations/:id", () => {
     it("should return recommendation given a request", get.getById);
   });
