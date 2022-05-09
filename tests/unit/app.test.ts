@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { recommendationRepository } from "../../src/repositories/recommendationRepository.js";
 import { recommendationService } from "../../src/services/recommendationsService.js";
 import { conflictError, notFoundError } from "../../src/utils/errorUtils.js";

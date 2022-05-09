@@ -1,10 +1,11 @@
+/* eslint-disable indent */
 import supertest from "supertest";
 import app from "../../../src/app.js";
 import { prisma } from "../../../src/database.js";
 import { createRecommendation } from "../../factories/recommendationFactory.js";
 
 export async function upvoteInvalidId() {
-  const id: number = 0;
+  const id = 0;
 
   const response = await supertest(app).post(`/recommendations/${id}/upvote`);
 
@@ -12,7 +13,7 @@ export async function upvoteInvalidId() {
 }
 
 export async function downvoteInvalidId() {
-  const id: number = 0;
+  const id = 0;
 
   const response = await supertest(app).post(`/recommendations/${id}/downvote`);
 

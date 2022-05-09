@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { prisma } from "../../src/database.js";
 import * as get from "./itControllers/getIt.js";
 import * as insert from "./itControllers/insertIt.js";

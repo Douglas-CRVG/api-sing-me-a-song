@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { faker } from "@faker-js/faker";
 import { CreateRecommendationData } from "../../src/services/recommendationsService.js";
 

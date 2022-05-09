@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import supertest from "supertest";
 import app from "../../../src/app.js";
 import { createRecommendation } from "../../factories/recommendationFactory.js";

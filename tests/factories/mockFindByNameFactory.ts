@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { Recommendation } from "@prisma/client";
 
 export function mockRecommendation(): Recommendation {
