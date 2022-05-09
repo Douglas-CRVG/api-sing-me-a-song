@@ -1,4 +1,4 @@
-import { prisma } from "../src/database.js";
+import { prisma } from "../../src/database.js";
 import * as get from "./itControllers/getIt.js";
 import * as insert from "./itControllers/insertIt.js";
 import * as vote from "./itControllers/voteIt.js";

@@ -1,7 +1,7 @@
 import supertest from "supertest";
-import app from "../../src/app.js";
-import { recommendationBody } from "../factories/recommendationBodyFactory.js";
-import { prisma } from "../../src/database.js";
+import app from "../../../src/app.js";
+import { recommendationBody } from "../../factories/recommendationBodyFactory.js";
+import { prisma } from "../../../src/database.js";
 
 export async function insertAndPersist() {
   const recommendation = recommendationBody();

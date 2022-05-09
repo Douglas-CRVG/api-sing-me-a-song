@@ -5,9 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.ts",
-    "test": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i --watchAll"
+    "dev": "dotenv -e .env prisma db seed && nodemon src/server.ts",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest -i --coverage",
+    "test": "dotenv -e .env.test prisma db seed && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i",
+    "test:watch": "dotenv -e .env.test prisma db seed && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -39,5 +40,8 @@
     "express-async-errors": "^3.1.1",
     "joi": "^17.4.1",
     "react-player": "^2.10.0"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   }
 }

@@ -1,6 +1,6 @@
 import supertest from "supertest";
-import app from "../../src/app.js";
-import { createRecommendation } from "../factories/recommendationFactory.js";
+import app from "../../../src/app.js";
+import { createRecommendation } from "../../factories/recommendationFactory.js";
 
 export async function getAll() {
   const response = await supertest(app).get("/recommendations");
@@ -23,6 +23,7 @@ export async function getRandomNoRecommendations() {
 
   expect(response.status).toEqual(404);
 }
+
 export async function getTop() {
   const amount = 10;
 

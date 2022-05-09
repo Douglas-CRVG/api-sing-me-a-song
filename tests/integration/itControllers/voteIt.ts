@@ -1,7 +1,7 @@
 import supertest from "supertest";
-import app from "../../src/app.js";
-import { prisma } from "../../src/database.js";
-import { createRecommendation } from "../factories/recommendationFactory.js";
+import app from "../../../src/app.js";
+import { prisma } from "../../../src/database.js";
+import { createRecommendation } from "../../factories/recommendationFactory.js";
 
 export async function upvoteInvalidId() {
   const id: number = 0;
