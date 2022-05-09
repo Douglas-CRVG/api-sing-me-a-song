@@ -9,7 +9,20 @@ export async function getAll() {
   expect(response).not.toBeNull();
 }
 
-export async function getRandom() {}
+export async function getRandom() {
+  await createRecommendation();
+  await createRecommendation();
+
+  const response = await supertest(app).get("/recommendations/random");
+
+  expect(response.body).not.toBeNull();
+}
+
+export async function getRandomNoRecommendations() {
+  const response = await supertest(app).get("/recommendations/random");
+
+  expect(response.status).toEqual(404);
+}
 export async function getTop() {
   const amount = 10;
 

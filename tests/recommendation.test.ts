@@ -25,8 +25,19 @@ describe("Recommendaion controller", () => {
     it("should return up to 10 recommendations giving a request", get.getAll);
   });
 
+  describe("GET /recommendations/random", () => {
+    it("should return random recommendations given a request", get.getRandom);
+    it(
+      "should return 404 since there are no recommendations registered",
+      get.getRandomNoRecommendations
+    );
+  });
+
   describe("GET /recommendations/top/:amount", () => {
-    it("TOP", get.getTop);
+    it(
+      "should return top recommendations given a request with amount",
+      get.getTop
+    );
   });
 
   describe("GET /recommendations/:id", () => {
