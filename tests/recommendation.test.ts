@@ -25,6 +25,10 @@ describe("Recommendaion controller", () => {
     it("should return up to 10 recommendations giving a request", get.getAll);
   });
 
+  describe("GET /recommendations/:id", () => {
+    it("should return recommendation given a request", get.getById);
+  });
+
   describe("POST /recommendations/:id/upvote", () => {
     it("should return 200 and persist upvote given a valid id", vote.upvote);
     it("should return 404 given a invalid id", vote.upvoteInvalidId);
